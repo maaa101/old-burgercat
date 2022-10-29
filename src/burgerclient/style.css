@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+body {
+  margin: 0;
+  font-family: "Ubuntu", sans-serif;
+  background-color: #242424;
+}
+
+
+input {
+  background-color: #3f3f3f;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 5px;
+}
+
+button {
+  background-color: #3f3f3f;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 10px 15px;
+}
+
+/* bleh */
+.burgerpost {
+  background-color: #303030;
+  color: white;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Navigation bar */
+.navbar {
+  width: 100%;
+  border: none;
+}
+
+.topnav {
+  margin: 10px;
+  background-color: #303030;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.topnav a {
+  margin: 5px;
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 14px 14px;
+  text-decoration: none;
+  font-size: 17px;
+  border-radius: 8px;
+}
+
+.topnav a:hover {
+  background-color: #3f3f3f;
+}
+
+.topnav a.active {
+  background-color: #444444;
+}
+
+.logoimg {
+  margin: 10px;
+  height: 30px;
+  display: flex;
+  justify-content: left;
+}

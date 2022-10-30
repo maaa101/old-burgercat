@@ -20,13 +20,14 @@
         <h1>New Post</h1>
         <p>Read the rules before making a post</p>
 
-        <form action="submitburger.php" method="post">
-            Post Name: <input type="text" name="name">
+        <form method="post">
+            Post Title: <input type="text" value="{{ request.form['title'] }}" name="title">
             <br><br>
-            Image URL: <input type="text" name="imageurl">
+            Image URL: <input type="text" value="{{ request.form['imgurl'] }}" name="imgurl">
             <br><br>
-            <input type="submit">
+            <button type="submit" class="btn btn-primary">Post</button>
             <br>
+        </form>
     </div>
 
 </body>

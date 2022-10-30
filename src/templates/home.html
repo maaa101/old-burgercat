@@ -8,12 +8,14 @@
 </head>
 
 <body>
-    <div class="burgerpost">
-        <img id="imageObject" src="">
-        <p id="creatorObject">burger man</p>
-        <p id="upvoteObject">1 likes</p>
-        <button id="creatorObject">Like</button>
-    </div>
+    {% for post in posts %}
+        <div class="burgerpost">
+            <img src="{{ post['imgurl'] }}">
+            <p>{{ post['title'] }}</p>
+            <p>{{ post['likes'] }} likes | Posted on {{ post['created'] }} | ID: {{ post['id'] }}</p>
+            <button id="creatorObject">Like</button>
+        </div>
+    {% endfor %}
 
 </body>
 </html>

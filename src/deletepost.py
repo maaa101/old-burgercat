@@ -23,6 +23,6 @@ def delete(id):
     conn.execute('DELETE FROM posts WHERE id = ?', (id,))
     conn.commit()
     conn.close()
-idinput = input("Which post do you want to delete?")
+idinput = input("The ID of the post you want to delete: ")
 
 delete(idinput + "")

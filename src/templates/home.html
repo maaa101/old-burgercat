@@ -10,9 +10,9 @@
 <body>
     {% for post in posts %}
         <div class="burgerpost">
-            <img src="{{ post['imgurl'] }}">
+            <img class="burgerimg" src="{{ post['imgurl'] }}">
             <p>{{ post['title'] }}</p>
-            <p>Posted on {{ post['created'] }} | ID: {{ post['id'] }}</p>
+            <p class="infotext">Posted on {{ post['created'] }} | ID: {{ post['id'] }}</p>
         </div>
     {% endfor %}
 

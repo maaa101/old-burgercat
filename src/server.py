@@ -4,6 +4,10 @@ import sqlite3
 from flask import Flask, render_template, request, url_for, flash, redirect
 #from werkzeug.exceptions import abort
 
+# trusted image sources
+# this is to prevent malicous actors from harvesting IP addresses
+trustedsources = ["https://cdn.discordapp.com/attachments", "https://media.discordapp.net/attachments", "https://media.tenor.com"]
+
 app = Flask(__name__)
 
 # the great burger key
@@ -32,14 +36,20 @@ def create():
         imgurl = request.form["imgurl"]
 
         if not title:
-            flash("do you think you can get away with posting a burger without a title")
+            flash("you can't get away with posting without having a title!!!!")
+        elif not imgurl:
+            flash("you forgot the actual image")
         else:
-            conn = get_db_connection()
-            conn.execute('INSERT INTO posts (title, imgurl) VALUES (?, ?)',
-                         (title, imgurl))
-            conn.commit()
-            conn.close()
-            return render_template("donepost.html")
+            for string in trustedsources:
+                if string in imgurl:
+                    flash("Invalid image URL")
+                    print(imgurl + " is not a trusted image URL")
+                else:
+                    conn = get_db_connection()
+                    conn.execute('INSERT INTO posts (title, imgurl) VALUES (?, ?)', (title, imgurl))
+                    conn.commit()
+                    conn.close()
+                    return render_template("donepost.html")
 
     return render_template("navbar.html") + render_template("post.html")
 
@@ -53,3 +63,4 @@ def home():
 if __name__ == "__main__":
     from waitress import serve
     serve(app, host="localhost", port=8080)
+    print("the burger server has started")

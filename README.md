@@ -4,3 +4,6 @@ burgercat is a open-source image uploading website like Imgur and Pinterest<br>
 the main purpose of this websites is to post images of burgers and funny cats
 
 this website is not done yet
+if anyone wants to host burgercat let met know
+
+# i just want my name to be shown in the contribution tab -NavaShield #

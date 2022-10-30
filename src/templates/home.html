@@ -12,8 +12,7 @@
         <div class="burgerpost">
             <img src="{{ post['imgurl'] }}">
             <p>{{ post['title'] }}</p>
-            <p>{{ post['likes'] }} likes | Posted on {{ post['created'] }} | ID: {{ post['id'] }}</p>
-            <button id="creatorObject">Like</button>
+            <p>Posted on {{ post['created'] }} | ID: {{ post['id'] }}</p>
         </div>
     {% endfor %}
 

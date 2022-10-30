@@ -1,3 +1,7 @@
+# creates a burger database
+
+# IF THERE IS ALREADY A DATABASE.DB FILE, THE DATABASE WILL BE CLEARED AND ALL BURGERS WILL BE REMOVED
+
 import sqlite3
 
 connection = sqlite3.connect("database.db")

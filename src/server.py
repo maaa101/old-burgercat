@@ -4,6 +4,8 @@ import sqlite3
 from flask import Flask, render_template, request, url_for, flash, redirect
 #from werkzeug.exceptions import abort
 
+print("the burger server has started")
+
 # trusted image sources
 # this is to prevent malicous actors from harvesting IP addresses
 trustedsources = ["https://cdn.discordapp.com/attachments", "https://media.discordapp.net/attachments", "https://media.tenor.com"]
@@ -53,14 +55,18 @@ def create():
 
     return render_template("navbar.html") + render_template("post.html")
 
-@app.route('/')
+@app.route('/', methods=('GET', 'POST'))
 def home():
     conn = get_db_connection()
-    posts = conn.execute('SELECT * FROM posts').fetchall()
+    posts = conn.execute('SELECT * FROM posts ORDER BY created DESC;').fetchall()
     conn.close()
+    if request.method == 'POST':
+        id = request.form["id"]
+        #print(id)
+        return render_template("navbar.html") + render_template("home.html", posts=posts)
     return render_template("navbar.html") + render_template("home.html", posts=posts)
 
 if __name__ == "__main__":
     from waitress import serve
     serve(app, host="localhost", port=8080)
-    print("the burger server has started")
+    print("the burger server has ended")

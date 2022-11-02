@@ -86,3 +86,7 @@ button {
   display: flex;
   justify-content: left;
 }
+
+.likecount {
+  color: #3584e4
+}
